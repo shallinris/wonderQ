@@ -1,3 +1,9 @@
+.wonder-image {
+    width: 45px;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+}
 .main {
     text-align: center;
     background-color: #a4dded;
@@ -17,10 +23,3 @@ ul {
     margin: 0;
     padding: 0;
 }
-
-/*#result {*/
-    /*background-color: #68bdd4;*/
-    /*text-align: left;*/
-    /*margin-left: 30%;*/
-    /*margin-right:30%;*/
-/*}*/

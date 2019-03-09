@@ -4,7 +4,6 @@ import com.example.wonderq.dao.MessageRepository;
 import com.example.wonderq.objects.Message;
 import com.example.wonderq.objects.Status;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -65,7 +64,7 @@ public class MessageController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value="{id}")
-    public @ResponseBody Message updateMessage(@RequestBody Message message) {
+    public @ResponseBody Status updateMessage(@RequestBody Message message) {
         Status status = new Status();
         try {
             if (message.getId() > 0) {
@@ -76,10 +75,9 @@ public class MessageController {
             e.printStackTrace();
             status.setSuccess(false);
         }
-        return message;
+        return status;
     }
 
-    //todo: maybe add status for all of these
     @RequestMapping(method = RequestMethod.DELETE, value="{id}")
     public @ResponseBody Status deleteMessage(@PathVariable Integer id) {
         Status status = new Status();

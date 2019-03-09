@@ -1,27 +1,27 @@
-//send a put request to the back end with the status field set to PROCESSED
+
 function selectMessage() {
     console.log("got to select message");
-    var input = document.getElementById('result').valueOf();
-
-    fetch('http://localHost:8080/messages/new', {
-        method: 'PUT',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            message: input,
-            status: "PROCESSED",
-            wasProcessed: true,
-            publishDate: null,
-        })
-    }).then((res) => res.json())
-        .then((data) => alert('Your message id is ' + data))
-        .catch((err) => console.log(err))
+    //in theory this would send a put request to the back end with the status field of the selected message set to PROCESSED
+    // var input = document.getElementById('result').valueOf();
+    //
+    // fetch('http://localHost:8080/messages/new', {
+    //     method: 'PUT',
+    //     headers: {
+    //         Accept: 'application/json',
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //         message: input,
+    //         status: "PROCESSED",
+    //         wasProcessed: true,
+    //         publishDate: null,
+    //     })
+    // }).then((res) => res.json())
+    //     .catch((err) => console.log(err))
 }
 
 function getMessages() {
-    let result;
+    let result = "";
     fetch('http://localHost:8080/messages/new')
         .then((resp) => resp.json())
         .then(data => {
@@ -34,8 +34,8 @@ function getMessages() {
                         </li>
                       </ul>
                     </div>`;
+                document.getElementById('result').innerHTML = result;
             });
-            document.getElementById('result').innerHTML = result;
 
         })
         .catch(error => {
@@ -45,7 +45,6 @@ function getMessages() {
 
 function postMessage(event) {
     event.preventDefault();
-    console.log("got to post message");
     var userInput = document.getElementById('message').value;
 
     userInput === "" ?

@@ -31,9 +31,7 @@ public class Message implements Serializable, Cloneable {
         this.publishDate = publishDate;
     }
 
-    public Message() {
-
-    }
+    public Message() {}
 
     @Override
     public Object clone() throws CloneNotSupportedException {
