@@ -1,35 +1,23 @@
-function selectMessage(e) {
+//send a put request to the back end with the status field set to PROCESSED
+function selectMessage() {
     console.log("got to select message");
-    var userInput = document.getElementById('result').value;
+    var input = document.getElementById('result').valueOf();
 
-    fetch('http://localHost:8080/messages', {
+    fetch('http://localHost:8080/messages/new', {
         method: 'PUT',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            message: e.getMessages(),
-            status: PROCESSED,
+            message: input,
+            status: "PROCESSED",
             wasProcessed: true,
             publishDate: null,
         })
     }).then((res) => res.json())
         .then((data) => alert('Your message id is ' + data))
         .catch((err) => console.log(err))
-
-    //how do i get the selected message here?
-    put(`http://localHost:8080/messages/${message.id}`, message)
-        .then(value => {
-            if (value.success) {
-                deleteObject('tray', tray);
-                sendBacktoList();
-                // showSuccessEdit();
-                // setTimeout(sendBacktoList, 3000);
-            } else {
-                console.log('failed to update tray');
-            }
-        });
 }
 
 function getMessages() {
@@ -42,18 +30,17 @@ function getMessages() {
                     `<div>
                       <ul>
                         <li>
-                            <input type="checkbox" onclick="selectMessage(this)"> Message : ${msg.message}</input>
+                            <input type="checkbox" onclick="selectMessage()"> Message : ${msg.message}</input>
                         </li>
                       </ul>
                     </div>`;
             });
             document.getElementById('result').innerHTML = result;
-            console.log(result);
 
         })
         .catch(error => {
             console.log(error);
-    });
+        });
 }
 
 function postMessage(event) {
@@ -62,24 +49,20 @@ function postMessage(event) {
     var userInput = document.getElementById('message').value;
 
     userInput === "" ?
-    alert('Please enter a message') :
-    fetch('http://localHost:8080/messages', {
-    	method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
+        alert('Please enter a message') :
+        fetch('http://localHost:8080/messages', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
             },
-        body: JSON.stringify({
-            message: userInput,
-            status: null,
-            wasProcessed: false,
-            publishDate: new Date(),
-        })
+            body: JSON.stringify({
+                message: userInput,
+                status: null,
+                wasProcessed: false,
+                publishDate: new Date(),
+            })
         }).then((res) => res.json())
             .then((data) => alert('Your message id is ' + data))
             .catch((err) => console.log(err))
-
 }
-
-
-
