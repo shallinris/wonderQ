@@ -1,4 +1,5 @@
 # wonderQ
+WonderQ is a lightweight queuing system that allows users to both publish and consume messages. 
 
 API Documentation
 
