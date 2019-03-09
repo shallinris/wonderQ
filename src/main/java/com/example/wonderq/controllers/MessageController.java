@@ -48,7 +48,6 @@ public class MessageController {
     //returns generated id as confirmation
     @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody int publishMessage(@RequestBody Message message) {
-        System.out.println("got to post");
         Status status = new Status();
         try {
             if (message.getId() == 0) {
