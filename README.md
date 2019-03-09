@@ -5,7 +5,7 @@ API Documentation
 
 Documentation for existing API endpoints:
 
-The endpoint ‘/messages’ returns a list of JSONs of all messages existing in the database. The only parameter is pageable (which is not currently used), allowing the option to specify and return a select number of pages rather than list. 
+The endpoint ‘/messages’ returns a list of JSONs of all messages existing in the database. The only parameter is pageable (which is not currently used), allowing the option to specify and return a select number of pages rather than list. This endpoint is my interpretation of a “quick and dirty developer tool”—it allows the user/developer to view all the message objects in JSON format.
 
 The endpoint ‘messages/new’ allows users to view all messages with the field wasProcessed set to false (essentially every message that is open for consumption). A list of objects in the JSON format is returned. The only parameter is pageable (which is not currently used), allowing the option to specify and return a select number of pages rather than list. 
 
@@ -27,7 +27,9 @@ The endpoint ‘/messages/betweenDates/{date1}/{date2}’ would return all unpro
 
 How would I go about scaling this system to meet high-volume requests?
 
-For larger scale production I would create a user object to save all users to the database and endpoints would be restricted to secured/registered users. Also, I might add a userId field to the message object in order to keep track of which user processed which message (and not delete unprocessed messages from the database). 
-I might also add more meditada to the message obj (such as date and time consumed and subject of message)? In terms of larger scale production I think it would be prudent to organize questions according to subject and allow researchers to search based on subject, and potentially, his/her expertise.
+For larger scale production I would create a user object used to save all users to the database and endpoints would be restricted to secured/registered users. Also, I might add a userId field to the message object in order to keep track of which user processed which message (and not delete unprocessed messages from the database). 
+I might also add more data to the message object (such as date and time consumed and subject of message). In terms of larger scale production I think it would be prudent to organize questions according to subject and allow researchers to search based on subject, and potentially, his/her expertise.
+
+
 
 
