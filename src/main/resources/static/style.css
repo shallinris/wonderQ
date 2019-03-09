@@ -1,0 +1,26 @@
+.main {
+    text-align: center;
+    background-color: #a4dded;
+}
+
+.post-button {
+    margin-top: 2%;
+}
+
+.message-input-field {
+    width: 300px;
+    height: 30px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*#result {*/
+    /*background-color: #68bdd4;*/
+    /*text-align: left;*/
+    /*margin-left: 30%;*/
+    /*margin-right:30%;*/
+/*}*/

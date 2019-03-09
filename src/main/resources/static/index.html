@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WonderQ</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body class = 'main'>
+<div class = 'title-area'>
+    <h1>WonderQ</h1>
+    <p>Welcome to WonderQ, a place where you can search, ask, answer, and have your questions responded to in near real time.
+    </p>
+</div>
+<div class = 'search-messages'>
+    <h4>Search all unprocessed messages:</h4>
+    <button onclick="getMessages()">SEARCH</button>
+    <div id="result">
+    </div>
+</div>
+<div class = 'publish-message'>
+    <h4>Publish a message:</h4>
+    <form id = 'postMessage'>
+        <input type="text" name="" placeholder=" Message ..." id="message" class = "message-input-field">
+        <div class = 'post-button'>
+            <button onclick="postMessage(event)">PUBLISH</button>
+        </div>
+    </form>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
